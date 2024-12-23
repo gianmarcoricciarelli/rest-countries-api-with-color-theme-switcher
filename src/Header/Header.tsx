@@ -14,7 +14,7 @@ export default function Header() {
     return (
         <div
             className={clsx(
-                'px-5 py-12 lg:px-20 lg:py-5',
+                'px-5 py-12 md:px-20 md:py-5',
                 'bg-white dark:bg-dark-blue',
                 'transition-colors duration-300',
                 'flex justify-between items-center',

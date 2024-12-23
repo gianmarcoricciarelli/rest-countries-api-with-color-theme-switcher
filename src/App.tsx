@@ -1,7 +1,22 @@
+import { Context, useContext, useEffect } from 'react';
+import Filter from './Filter/Filter';
 import Header from './Header/Header';
 import clsx from 'clsx';
+import {
+    CountriesContext,
+    CountriesContextInterface,
+} from './CountriesContex/CountriesContex';
 
 export default function App() {
+    const { countries, fetchCountries } = useContext(
+        CountriesContext as Context<CountriesContextInterface>,
+    );
+    console.log('App ~ countries:', countries);
+
+    useEffect(() => {
+        fetchCountries();
+    }, [fetchCountries]);
+
     return (
         <div
             className={clsx(
@@ -11,6 +26,9 @@ export default function App() {
             )}
         >
             <Header />
+            <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>
+                <Filter />
+            </div>
         </div>
     );
 }
