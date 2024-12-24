@@ -30,6 +30,7 @@ export default function Select({ onRegionChange }: Select) {
 
     const [isSelectVisible, setIsSelectVisible] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState<Region | ''>('');
+    const [fadeIn, setFadeIn] = useState(false);
 
     const selectRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +41,19 @@ export default function Select({ onRegionChange }: Select) {
             region,
         }));
     }
+
+    const onSelectClick = useCallback(
+        function onSelectClick() {
+            if (!isSelectVisible) {
+                setIsSelectVisible(true);
+                setTimeout(() => setFadeIn(true), 100);
+            } else {
+                setFadeIn(false);
+                setTimeout(() => setIsSelectVisible(false), 100);
+            }
+        },
+        [isSelectVisible],
+    );
 
     const detectClickOutside = useCallback(
         function onMouseDownHandler(event: MouseEvent | TouchEvent) {
@@ -73,9 +87,7 @@ export default function Select({ onRegionChange }: Select) {
                 'flex justify-between items-center gap-10',
                 'hover:cursor-pointer',
             )}
-            onClick={() =>
-                setIsSelectVisible((_isSelectVisible) => !_isSelectVisible)
-            }
+            onClick={onSelectClick}
         >
             <Text fontSize='small' fontStyle='semiBold'>
                 {selectedRegion || 'Filter by Region'}
@@ -84,10 +96,14 @@ export default function Select({ onRegionChange }: Select) {
             {isSelectVisible && (
                 <div
                     className={clsx(
+                        'opacity-0 transition-opacity duration-300',
                         'w-full p-4 rounded-md',
                         'bg-white dark:bg-dark-blue',
                         'flex flex-col gap-4',
                         'absolute left-0 bottom-0 translate-y-[102%]',
+                        {
+                            'opacity-100': fadeIn,
+                        },
                     )}
                     ref={selectRef}
                 >
