@@ -4,14 +4,22 @@ import React from 'react';
 interface Text {
     fontStyle?: 'light' | 'semiBold' | 'extraBold';
     fontSize?: 'small' | 'base' | 'extraLarge';
+    onClick?: (...args: unknown[]) => void;
     children: React.ReactNode;
 }
 
 export default function Text({
     fontStyle = 'light',
     fontSize = 'small',
+    onClick,
     children,
 }: Text) {
+    function onClickHandler() {
+        if (onClick) {
+            onClick();
+        }
+    }
+
     return (
         <span
             className={clsx(
@@ -26,6 +34,7 @@ export default function Text({
                 'text-very-dark-blue-dark dark:text-white',
                 'transition-colors duration-300',
             )}
+            onClick={() => onClickHandler()}
         >
             {children}
         </span>

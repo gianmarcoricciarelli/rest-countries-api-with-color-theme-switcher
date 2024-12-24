@@ -8,7 +8,7 @@ import {
 } from './CountriesContex/CountriesContex';
 
 export default function App() {
-    const { countries, fetchCountries } = useContext(
+    const { countries, fetchCountries, isLoading, error } = useContext(
         CountriesContext as Context<CountriesContextInterface>,
     );
     console.log('App ~ countries:', countries);
@@ -29,6 +29,9 @@ export default function App() {
             <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>
                 <Filter />
             </div>
+            {!isLoading && !error && countries.length > 0 && <p>Countries</p>}
+            {isLoading && <p>Loading</p>}
+            {error && <p>Error</p>}
         </div>
     );
 }

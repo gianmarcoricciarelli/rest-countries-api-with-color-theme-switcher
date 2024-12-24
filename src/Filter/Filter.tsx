@@ -1,25 +1,26 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Select from './Select/Select';
-import { useDebouncedCallback } from 'use-debounce';
+import { Context, useContext, useEffect, useState } from 'react';
+import {
+    CountriesContext,
+    CountriesContextInterface,
+} from '../CountriesContex/CountriesContex';
+import { Region } from '../types';
 
 export default function Filter() {
-    const onChangeHandler = useDebouncedCallback(async (value: string) => {
-        try {
-            const response = await fetch(
-                'https://restcountries.com/v3.1/region/africa',
-            );
+    const { filterCountries } = useContext(
+        CountriesContext as Context<CountriesContextInterface>,
+    );
 
-            if (response.ok) {
-                const data = await response.json();
-                console.log('onChangeHandler ~ data:', data);
-            } else {
-                throw new Error('Something went wrong');
-            }
-        } catch {
-            throw new Error('Something went wrong');
-        }
-    }, 1000);
+    const [filter, setFilter] = useState<{
+        region: Region | '';
+        inputText: string;
+    }>({ region: '', inputText: '' });
+
+    useEffect(() => {
+        filterCountries(filter);
+    }, [filter, filterCountries]);
 
     return (
         <div
@@ -39,7 +40,13 @@ export default function Filter() {
                 )}
                 type='text'
                 placeholder='Search for a country...'
-                onChange={(event) => onChangeHandler(event.target.value)}
+                value={filter.inputText}
+                onChange={(event) =>
+                    setFilter((prevFilter) => ({
+                        ...prevFilter,
+                        inputText: event.target.value,
+                    }))
+                }
             />
             <MagnifyingGlassIcon
                 className={clsx(
@@ -49,7 +56,7 @@ export default function Filter() {
                     'absolute sm:top-1/2 left-8 sm:-translate-y-1/2',
                 )}
             />
-            <Select />
+            <Select onRegionChange={setFilter} />
         </div>
     );
 }
