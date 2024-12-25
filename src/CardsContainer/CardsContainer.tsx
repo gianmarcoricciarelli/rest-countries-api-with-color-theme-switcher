@@ -1,6 +1,16 @@
 import clsx from 'clsx';
+import Card from './Card/Card';
+import { Context, useContext } from 'react';
+import {
+    CountriesContext,
+    CountriesContextInterface,
+} from '../CountriesContex/CountriesContex';
 
 export default function CardsContainer() {
+    const { countries } = useContext(
+        CountriesContext as Context<CountriesContextInterface>,
+    );
+
     return (
         <div
             className={clsx(
@@ -8,10 +18,9 @@ export default function CardsContainer() {
                 'flex flex-col gap-16 md:grid md:grid-cols-4',
             )}
         >
-            <p>Cards Container</p>
-            <p>Cards Container</p>
-            <p>Cards Container</p>
-            <p>Cards Container</p>
+            {countries.map((country) => (
+                <Card key={country.name.common} country={country} />
+            ))}
         </div>
     );
 }

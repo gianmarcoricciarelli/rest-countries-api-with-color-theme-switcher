@@ -22,7 +22,7 @@ interface Select {
 export default function Select({ onRegionChange }: Select) {
     const regions: Region[] = [
         'Africa',
-        'America',
+        'Americas',
         'Asia',
         'Europe',
         'Oceania',
