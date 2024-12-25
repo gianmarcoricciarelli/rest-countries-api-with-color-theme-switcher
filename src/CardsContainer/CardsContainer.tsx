@@ -4,7 +4,7 @@ import { Context, useContext } from 'react';
 import {
     CountriesContext,
     CountriesContextInterface,
-} from '../CountriesContex/CountriesContex';
+} from '../CountriesContext/CountriesContext';
 
 export default function CardsContainer() {
     const { countries } = useContext(

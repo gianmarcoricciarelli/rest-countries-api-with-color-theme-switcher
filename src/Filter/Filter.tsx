@@ -5,7 +5,7 @@ import { Context, useContext, useEffect, useState } from 'react';
 import {
     CountriesContext,
     CountriesContextInterface,
-} from '../CountriesContex/CountriesContex';
+} from '../CountriesContext/CountriesContext';
 import { Region } from '../types';
 
 export default function Filter() {

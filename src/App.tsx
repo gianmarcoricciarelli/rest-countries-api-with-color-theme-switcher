@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import {
     CountriesContext,
     CountriesContextInterface,
-} from './CountriesContex/CountriesContex';
+} from './CountriesContext/CountriesContext';
 import CardsContainer from './CardsContainer/CardsContainer';
 
 export default function App() {
