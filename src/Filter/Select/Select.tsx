@@ -83,7 +83,7 @@ export default function Select({ onRegionChange }: Select) {
         <div
             className={clsx(
                 'w-[188px] p-4 relative rounded-md select-none',
-                'bg-white dark:bg-dark-blue',
+                'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                 'flex justify-between items-center gap-10',
                 'hover:cursor-pointer',
             )}
@@ -98,7 +98,7 @@ export default function Select({ onRegionChange }: Select) {
                     className={clsx(
                         'opacity-0 transition-opacity duration-300',
                         'w-full p-4 rounded-md',
-                        'bg-white dark:bg-dark-blue',
+                        'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                         'flex flex-col gap-4',
                         'absolute left-0 bottom-0 translate-y-[calc(100%_+_4px)]',
                         {

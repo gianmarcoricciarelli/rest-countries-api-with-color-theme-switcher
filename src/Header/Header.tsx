@@ -15,7 +15,7 @@ export default function Header() {
         <header
             className={clsx(
                 'px-5 py-12 md:px-20 md:py-5',
-                'bg-white dark:bg-dark-blue',
+                'shadow-md bg-white dark:bg-dark-blue dark:shadow-none',
                 'transition-colors duration-300',
                 'flex justify-between items-center',
             )}

@@ -35,7 +35,7 @@ export default function Filter() {
                     'sm:w-96',
                     'pl-16 py-4 outline-none rounded-md',
                     'text-dark-gray placeholder:text-dark-gray  dark:text-white dark:placeholder:text-white',
-                    'bg-white dark:bg-dark-blue',
+                    'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                     'transition-colors duration-300',
                     'text-sm text-very-dark-blue-dark dark:text-white',
                 )}
