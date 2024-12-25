@@ -6,6 +6,7 @@ import {
     CountriesContext,
     CountriesContextInterface,
 } from './CountriesContex/CountriesContex';
+import CardsContainer from './CardsContainer/CardsContainer';
 
 export default function App() {
     const { countries, fetchCountries, isLoading, error } = useContext(
@@ -29,7 +30,7 @@ export default function App() {
             <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>
                 <Filter />
             </div>
-            {!isLoading && !error && countries.length > 0 && <p>Countries</p>}
+            {!isLoading && !error && countries.length > 0 && <CardsContainer />}
             {isLoading && <p>Loading</p>}
             {error && <p>Error</p>}
         </div>

@@ -30,6 +30,7 @@ export default function Filter() {
             )}
         >
             <input
+                id='countr-input'
                 className={clsx(
                     'sm:w-96',
                     'pl-16 py-4 outline-none rounded-md',
@@ -53,7 +54,7 @@ export default function Filter() {
                     'w-4 h-4',
                     'text-dark-gray dark:text-white',
                     'transition-colors duration-300',
-                    'absolute sm:top-1/2 left-8 sm:-translate-y-1/2',
+                    'absolute top-0 left-0 translate-x-[calc(50%_+_16px)] translate-y-[calc(50%_+_8px)]',
                 )}
             />
             <Select onRegionChange={setFilter} />

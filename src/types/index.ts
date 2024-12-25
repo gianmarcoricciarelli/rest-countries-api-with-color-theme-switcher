@@ -17,6 +17,10 @@ export type Country = {
             name: string;
         };
     };
+    flags: {
+        png: string;
+        svg: string;
+    };
     languages: {
         [laguageIdentifier: string]: string;
     };

@@ -12,7 +12,7 @@ export default function Header() {
     }
 
     return (
-        <div
+        <header
             className={clsx(
                 'px-5 py-12 md:px-20 md:py-5',
                 'bg-white dark:bg-dark-blue',
@@ -38,6 +38,6 @@ export default function Header() {
                     Dark Mode
                 </Text>
             </div>
-        </div>
+        </header>
     );
 }

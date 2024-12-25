@@ -100,7 +100,7 @@ export default function Select({ onRegionChange }: Select) {
                         'w-full p-4 rounded-md',
                         'bg-white dark:bg-dark-blue',
                         'flex flex-col gap-4',
-                        'absolute left-0 bottom-0 translate-y-[102%]',
+                        'absolute left-0 bottom-0 translate-y-[calc(100%_+_4px)]',
                         {
                             'opacity-100': fadeIn,
                         },
