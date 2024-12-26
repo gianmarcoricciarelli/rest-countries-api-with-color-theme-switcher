@@ -8,6 +8,7 @@ import {
 } from './CountriesContext/CountriesContext';
 import CardsContainer from './CardsContainer/CardsContainer';
 import { DetailContext, DetailContextInterface } from './DetailContext/context';
+import Button from './Button/Button';
 
 export default function App() {
     const { countries, fetchCountries, isLoading, error } = useContext(
@@ -33,7 +34,7 @@ export default function App() {
             <Header />
             <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>
                 {!detailCountry && <Filter />}
-                {detailCountry && <p>Detail</p>}
+                {detailCountry && <Button />}
             </div>
             {(!detailCountry &&
                 !isLoading &&
