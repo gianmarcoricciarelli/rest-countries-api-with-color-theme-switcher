@@ -7,7 +7,7 @@ export default function DetailColumn({
     details: { [keyIdentifier: string]: string };
 }) {
     return (
-        <div className={clsx('flex flex-col gap-4')}>
+        <div className={clsx('flex flex-col gap-2 sm:gap-4')}>
             {Object.keys(details).map(
                 (detailIdentifier) =>
                     details[detailIdentifier].length > 0 && (

@@ -82,7 +82,7 @@ export default function Select({ onRegionChange }: Select) {
     return (
         <div
             className={clsx(
-                'w-[188px] p-4 relative rounded-md select-none',
+                'w-[204px] p-4 relative rounded-md select-none',
                 'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                 'flex justify-between items-center gap-10',
                 'transition-colors duration-300',
@@ -90,10 +90,10 @@ export default function Select({ onRegionChange }: Select) {
             )}
             onClick={onSelectClick}
         >
-            <Text fontSize='small' fontStyle='semiBold'>
+            <Text fontSize='small' fontStyle='semiBold' whiteSpace='noWrap'>
                 {selectedRegion || 'Filter by Region'}
             </Text>
-            <ChevronDownIcon className='w-3 h-3 text-very-dark-blue-dark dark:text-white' />
+            <ChevronDownIcon className='w-4 h-4 text-very-dark-blue-dark dark:text-white' />
             {isSelectVisible && (
                 <div
                     className={clsx(

@@ -42,8 +42,8 @@ export default function Detail({ country }: { country: Country }) {
     return (
         <div
             className={clsx(
-                'px-10 md:px-20 py-8',
-                'flex flex-col gap-16 xl:grid xl:grid-cols-2 xl:gap-32',
+                'px-5 md:px-20 py-8',
+                'flex flex-col gap-8 sm:gap-16 xl:grid xl:grid-cols-2 xl:gap-32',
             )}
         >
             <div className='sm:max-w-[400px] sm:max-h[200px] md:max-w-[600px] md:max-h-[400px]'>
@@ -54,11 +54,11 @@ export default function Detail({ country }: { country: Country }) {
                 />
             </div>
             <div className={'flex flex-col justify-center'}>
-                <div className='flex flex-col gap-16'>
+                <div className='flex flex-col gap-8 sm:gap-16'>
                     <Text fontSize='extraLarge' fontStyle='extraBold'>
                         {country.name.common}
                     </Text>
-                    <div className='flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-8'>
+                    <div className='flex flex-col gap-8 md:grid md:grid-cols-2 sm:gap-16'>
                         <DetailColumn
                             details={{
                                 'Native Name': nativeName,
