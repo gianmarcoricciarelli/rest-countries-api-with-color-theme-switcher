@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { Country } from '../../types';
-import Text from '../../Text/Text';
 import { Context, useContext } from 'react';
 import {
     DetailContext,
     DetailContextInterface,
 } from '../../DetailContext/context';
+import Text from '../../Text/Text';
+import { Country } from '../../types';
 
 export default function Card({ country }: { country: Country }) {
     const { setDetailCountry } = useContext(

@@ -1,15 +1,16 @@
-import { Context, useContext, useEffect } from 'react';
-import Filter from './Filter/Filter';
-import Header from './Header/Header';
 import clsx from 'clsx';
+import { Context, useContext, useEffect } from 'react';
+import Button from './Button/Button';
+import CardsContainer from './CardsContainer/CardsContainer';
 import {
     CountriesContext,
     CountriesContextInterface,
 } from './CountriesContext/CountriesContext';
-import CardsContainer from './CardsContainer/CardsContainer';
-import { DetailContext, DetailContextInterface } from './DetailContext/context';
-import Button from './Button/Button';
 import Detail from './Detail/Detail';
+import { DetailContext, DetailContextInterface } from './DetailContext/context';
+import Filter from './Filter/Filter';
+import Header from './Header/Header';
+import Spinner from './Spinner/Spinner';
 
 export default function App() {
     const { countries, fetchCountries, isLoading, error } = useContext(
@@ -18,7 +19,6 @@ export default function App() {
     const { detailCountry } = useContext(
         DetailContext as Context<DetailContextInterface>,
     );
-    console.log('App ~ countries:', countries);
 
     const showCountries =
         !detailCountry && !isLoading && !error && countries.length > 0;
@@ -41,7 +41,11 @@ export default function App() {
                 {detailCountry && <Button />}
             </div>
             {(showCountries && <CardsContainer />) ||
-                (isLoading && <p>Loading</p>) ||
+                (isLoading && (
+                    <div className='w-full h-full flex justify-center items-center'>
+                        <Spinner />
+                    </div>
+                )) ||
                 (error && <p>Error</p>)}
             {detailCountry && <Detail country={detailCountry} />}
         </div>

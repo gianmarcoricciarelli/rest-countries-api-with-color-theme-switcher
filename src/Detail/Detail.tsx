@@ -6,8 +6,8 @@ import {
 } from '../CountriesContext/CountriesContext';
 import Text from '../Text/Text';
 import { Country } from '../types';
-import DetailColumn from './DetailColumn/DetailColumn';
 import Borders from './Borders/Borders';
+import DetailColumn from './DetailColumn/DetailColumn';
 
 export default function Detail({ country }: { country: Country }) {
     const { countries } = useContext(
