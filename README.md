@@ -1,7 +1,7 @@
 # Rest Countries API with Color Theme Switcher
 
 This is my implementation for the Frontend Mentor's challenge [Rest Countries API with Color Theme Switcher](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
-The challenge revolves around the implementation of a filterable dashboard displaying Cards with infos about the Countries take from the [Country REST API](https://restcountries.com/). Moreover, when clicking on a Card, the User must be redirected to a Detail page showing in depth infos about the selected Country.
+The challenge revolves around the implementation of a filterable dashboard displaying Cards with infos about the Countries taken from the [Country REST API](https://restcountries.com/). Moreover, when clicking on a Card, the User must be redirected to a Detail page showing in depth infos about the selected Country.
 
 ### The Challenge's goals
 
@@ -11,7 +11,7 @@ The challenge revolves around the implementation of a filterable dashboard displ
 
 ### Implementation
 
-In order to complete the challenge I user the following technologies:
+In order to complete the challenge I used the following technologies:
 
 - Typescript as main programming language;
 - React as library for implementing the UI's components and logic;
@@ -19,3 +19,15 @@ In order to complete the challenge I user the following technologies:
 - Vite as bundler;
 
 ### Run the Project
+
+You can run my project with the following commands
+
+```
+git clone https://github.com/gianmarcoricciarelli/rest-countries-api-with-color-theme-switcher.git
+
+cd rest-countries-api-with-color-theme-switcher
+
+pnpm install
+
+pnpm dev
+```
