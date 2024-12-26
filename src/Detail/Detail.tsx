@@ -7,6 +7,7 @@ import {
 import Text from '../Text/Text';
 import { Country } from '../types';
 import DetailColumn from './DetailColumn/DetailColumn';
+import Borders from './Borders/Borders';
 
 export default function Detail({ country }: { country: Country }) {
     const { countries } = useContext(
@@ -73,30 +74,7 @@ export default function Detail({ country }: { country: Country }) {
                         }}
                     />
                 </div>
-                {borders.length > 0 && (
-                    <div
-                        className={clsx(
-                            'flex flex-col gap-4 md:flex-row md:items-center',
-                        )}
-                    >
-                        <Text fontSize='base' fontStyle='semiBold'>
-                            Border Countries:
-                        </Text>
-                        <div className={clsx('flex flex-wrap gap-3')}>
-                            {borders.map((border) => (
-                                <div
-                                    key={border}
-                                    className={clsx(
-                                        'py-2 px-9 rounded-md',
-                                        'bg-white dark:bg-dark-blue shadow-md',
-                                    )}
-                                >
-                                    <Text fontSize='base'>{border}</Text>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                {borders.length > 0 && <Borders borders={borders} />}
             </div>
         </div>
     );
