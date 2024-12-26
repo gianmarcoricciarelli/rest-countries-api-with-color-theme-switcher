@@ -1,20 +1,31 @@
 import clsx from 'clsx';
 import { Country } from '../../types';
 import Text from '../../Text/Text';
+import { Context, useContext } from 'react';
+import {
+    DetailContext,
+    DetailContextInterface,
+} from '../../DetailContext/context';
 
 export default function Card({ country }: { country: Country }) {
+    const { setDetailCountry } = useContext(
+        DetailContext as Context<DetailContextInterface>,
+    );
+
     return (
         <div
             className={clsx(
-                'w-56 h-80 rounded-md',
-                'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
+                'rounded-md',
+                'bg-white dark:bg-dark-blue shadow-md dark:shadow-none ',
                 'flex flex-col',
+                'transition-colors duration-300',
                 'hover:cursor-pointer',
             )}
+            onClick={() => setDetailCountry(country)}
         >
             <div className='min-h-[50%] max-h-[50%]'>
                 <img
-                    className='h-full w-full overflow-hidden object-fill'
+                    className='h-full w-full overflow-hidden object-fill rounded-t-md'
                     src={country.flags.png}
                     alt={`${country.name.common}'s Flag`}
                 />
@@ -39,9 +50,3 @@ export default function Card({ country }: { country: Country }) {
         </div>
     );
 }
-
-// object-fit: fill;
-//     height: 100%;
-//     width: 100%;
-//     overflow: hidden;
-// }

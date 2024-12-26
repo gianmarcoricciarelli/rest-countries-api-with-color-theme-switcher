@@ -7,10 +7,14 @@ import {
     CountriesContextInterface,
 } from './CountriesContext/CountriesContext';
 import CardsContainer from './CardsContainer/CardsContainer';
+import { DetailContext, DetailContextInterface } from './DetailContext/context';
 
 export default function App() {
     const { countries, fetchCountries, isLoading, error } = useContext(
         CountriesContext as Context<CountriesContextInterface>,
+    );
+    const { detailCountry } = useContext(
+        DetailContext as Context<DetailContextInterface>,
     );
     console.log('App ~ countries:', countries);
 
@@ -28,11 +32,16 @@ export default function App() {
         >
             <Header />
             <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>
-                <Filter />
+                {!detailCountry && <Filter />}
+                {detailCountry && <p>Detail</p>}
             </div>
-            {!isLoading && !error && countries.length > 0 && <CardsContainer />}
-            {isLoading && <p>Loading</p>}
-            {error && <p>Error</p>}
+            {(!detailCountry &&
+                !isLoading &&
+                !error &&
+                countries.length > 0 && <CardsContainer />) ||
+                (isLoading && <p>Loading</p>) ||
+                (error && <p>Error</p>)}
+            {detailCountry && <p>Detail</p>}
         </div>
     );
 }

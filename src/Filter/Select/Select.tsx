@@ -85,6 +85,7 @@ export default function Select({ onRegionChange }: Select) {
                 'w-[188px] p-4 relative rounded-md select-none',
                 'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                 'flex justify-between items-center gap-10',
+                'transition-colors duration-300',
                 'hover:cursor-pointer',
             )}
             onClick={onSelectClick}
@@ -96,7 +97,7 @@ export default function Select({ onRegionChange }: Select) {
             {isSelectVisible && (
                 <div
                     className={clsx(
-                        'opacity-0 transition-opacity duration-300',
+                        'opacity-0 transition-all duration-300',
                         'w-full p-4 rounded-md',
                         'bg-white dark:bg-dark-blue shadow-md dark:shadow-none',
                         'flex flex-col gap-4',

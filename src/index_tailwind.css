@@ -590,32 +590,24 @@ video {
   height: 1rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
-.h-\[400px\] {
-  height: 400px;
-}
-
 .h-80 {
   height: 20rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .max-h-\[50\%\] {
   max-height: 50%;
 }
 
-.max-h-\[40\%\] {
-  max-height: 40%;
-}
-
-.min-h-\[40\%\] {
-  min-height: 40%;
-}
-
 .min-h-\[50\%\] {
   min-height: 50%;
+}
+
+.min-h-80 {
+  min-height: 20rem;
 }
 
 .w-3 {
@@ -626,6 +618,10 @@ video {
   width: 1rem;
 }
 
+.w-56 {
+  width: 14rem;
+}
+
 .w-\[188px\] {
   width: 188px;
 }
@@ -634,12 +630,8 @@ video {
   width: 100%;
 }
 
-.w-\[320px\] {
-  width: 320px;
-}
-
-.w-56 {
-  width: 14rem;
+.min-w-56 {
+  min-width: 14rem;
 }
 
 .translate-x-\[calc\(50\%_\+_16px\)\] {
@@ -675,6 +667,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
@@ -687,6 +683,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -695,20 +695,17 @@ video {
   gap: 1.25rem;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
 
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded-t-md {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
 }
 
 .bg-very-light-gray {
@@ -835,6 +832,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -912,8 +915,28 @@ html {
     display: grid;
   }
 
+  .md\:min-h-80 {
+    min-height: 20rem;
+  }
+
+  .md\:min-h-\[unset\] {
+    min-height: unset;
+  }
+
+  .md\:min-w-56 {
+    min-width: 14rem;
+  }
+
+  .md\:min-w-\[unset\] {
+    min-width: unset;
+  }
+
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:px-20 {
@@ -924,6 +947,16 @@ html {
   .md\:py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid {
+    display: grid;
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
