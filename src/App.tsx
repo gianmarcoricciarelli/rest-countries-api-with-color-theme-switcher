@@ -9,6 +9,7 @@ import {
 import CardsContainer from './CardsContainer/CardsContainer';
 import { DetailContext, DetailContextInterface } from './DetailContext/context';
 import Button from './Button/Button';
+import Detail from './Detail/Detail';
 
 export default function App() {
     const { countries, fetchCountries, isLoading, error } = useContext(
@@ -18,6 +19,9 @@ export default function App() {
         DetailContext as Context<DetailContextInterface>,
     );
     console.log('App ~ countries:', countries);
+
+    const showCountries =
+        !detailCountry && !isLoading && !error && countries.length > 0;
 
     useEffect(() => {
         fetchCountries();
@@ -36,13 +40,10 @@ export default function App() {
                 {!detailCountry && <Filter />}
                 {detailCountry && <Button />}
             </div>
-            {(!detailCountry &&
-                !isLoading &&
-                !error &&
-                countries.length > 0 && <CardsContainer />) ||
+            {(showCountries && <CardsContainer />) ||
                 (isLoading && <p>Loading</p>) ||
                 (error && <p>Error</p>)}
-            {detailCountry && <p>Detail</p>}
+            {detailCountry && <Detail country={detailCountry} />}
         </div>
     );
 }

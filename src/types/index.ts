@@ -9,8 +9,6 @@ export type Country = {
     };
     population: number;
     region: string;
-    subregion?: string;
-    capital?: string;
     tld: string[];
     currencies: {
         [currencyIdentifier: string]: {
@@ -24,7 +22,10 @@ export type Country = {
     languages: {
         [laguageIdentifier: string]: string;
     };
-    borders: string[];
+    fifa: string;
+    subregion?: string;
+    capital?: string;
+    borders?: string[];
 };
 
 export type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
