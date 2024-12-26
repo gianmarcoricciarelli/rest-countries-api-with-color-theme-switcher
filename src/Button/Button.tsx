@@ -19,6 +19,7 @@ export default function Button() {
                     'py-2 px-9 rounded-md',
                     'bg-white dark:bg-dark-blue shadow-md',
                     'flex gap-3 items-center',
+                    'transition-colors duration-300',
                 )}
                 onClick={() => setDetailCountry(null)}
             >
@@ -26,6 +27,7 @@ export default function Button() {
                     className={clsx(
                         'w-4 h-4',
                         'text-very-dark-blue-dark dark:text-white',
+                        'transition-colors duration-300',
                     )}
                 />
                 <Text fontSize='base'>Back</Text>

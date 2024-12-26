@@ -594,6 +594,10 @@ video {
   max-height: 50%;
 }
 
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
 .min-h-\[50\%\] {
   min-height: 50%;
 }
@@ -612,6 +616,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.max-w-\[\] {
+  max-width: ;
+}
+
+.max-w-\[600px\] {
+  max-width: 600px;
 }
 
 .translate-x-\[calc\(50\%_\+_16px\)\] {
@@ -645,6 +657,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -681,6 +697,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-md {
@@ -870,6 +890,10 @@ html {
     width: 24rem;
   }
 
+  .sm\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -907,6 +931,14 @@ html {
     display: grid;
   }
 
+  .md\:max-h-\[400px\] {
+    max-height: 400px;
+  }
+
+  .md\:max-w-\[600px\] {
+    max-width: 600px;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -921,6 +953,10 @@ html {
 
   .md\:gap-0 {
     gap: 0px;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:px-20 {
@@ -942,9 +978,18 @@ html {
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .lg\:bg-red-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+  }
 }
 
 @media (min-width: 1280px) {
+  .xl\:grid {
+    display: grid;
+  }
+
   .xl\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -43,38 +43,40 @@ export default function Detail({ country }: { country: Country }) {
         <div
             className={clsx(
                 'px-10 md:px-20 py-8',
-                'flex flex-col gap-16 lg:grid xl:grid-cols-2 xl:gap-32',
+                'flex flex-col gap-16 xl:grid xl:grid-cols-2 xl:gap-32',
             )}
         >
-            <div>
+            <div className='sm:max-w-[400px] sm:max-h[200px] md:max-w-[600px] md:max-h-[400px]'>
                 <img
                     className='w-full h-full object-fill'
                     src={country.flags.png}
                     alt={`${country.name.common}'s Flag`}
                 />
             </div>
-            <div className={clsx('flex flex-col gap-16')}>
-                <Text fontSize='extraLarge' fontStyle='extraBold'>
-                    {country.name.common}
-                </Text>
-                <div className='flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-0'>
-                    <DetailColumn
-                        details={{
-                            'Native Name': nativeName,
-                            Population: country.population.toLocaleString(),
-                            Region: country.region,
-                            'Sub Region': country.subregion || '',
-                        }}
-                    />
-                    <DetailColumn
-                        details={{
-                            'Top Level Domain': country.tld[0],
-                            Currencies: currencies,
-                            Languages: languages,
-                        }}
-                    />
+            <div className={'flex flex-col justify-center'}>
+                <div className='flex flex-col gap-16'>
+                    <Text fontSize='extraLarge' fontStyle='extraBold'>
+                        {country.name.common}
+                    </Text>
+                    <div className='flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-8'>
+                        <DetailColumn
+                            details={{
+                                'Native Name': nativeName,
+                                Population: country.population.toLocaleString(),
+                                Region: country.region,
+                                'Sub Region': country.subregion || '',
+                            }}
+                        />
+                        <DetailColumn
+                            details={{
+                                'Top Level Domain': country.tld[0],
+                                Currencies: currencies,
+                                Languages: languages,
+                            }}
+                        />
+                    </div>
+                    {borders.length > 0 && <Borders borders={borders} />}
                 </div>
-                {borders.length > 0 && <Borders borders={borders} />}
             </div>
         </div>
     );
