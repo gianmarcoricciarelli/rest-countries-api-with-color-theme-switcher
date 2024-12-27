@@ -49,7 +49,6 @@ export function CountryContextProvider({
 
     const filterCountries = useCallback(
         ({ region, inputText }: { region?: string; inputText: string }) => {
-            console.log('inputText:', inputText);
             let _filteredCountries: Country[] = [];
 
             if (region && inputText) {
