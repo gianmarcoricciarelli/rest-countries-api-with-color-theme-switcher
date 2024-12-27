@@ -25,11 +25,9 @@ export default function CardsContainer() {
                     <Card key={country.name.common} country={country} />
                 ))}
             {countries.length === 0 && (
-                <div>
-                    <Text fontSize='extraLarge' fontStyle='extraBold'>
-                        {`No results for "${inputText}"`}
-                    </Text>
-                </div>
+                <Text fontSize='extraLarge' fontStyle='extraBold'>
+                    {`No results for "${inputText}"`}
+                </Text>
             )}
         </div>
     );
