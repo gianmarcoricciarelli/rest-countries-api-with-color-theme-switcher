@@ -29,11 +29,7 @@ export default function App() {
 
     return (
         <div
-            className={clsx(
-                'h-full bg-very-light-gray dark:bg-very-dark-blue-dark',
-                'transition-colors duration-300',
-                'flex flex-col',
-            )}
+            className={clsx('transition-colors duration-300', 'flex flex-col')}
         >
             <Header />
             <div className={clsx('px-5 py-8 md:px-20', 'flex flex-col')}>

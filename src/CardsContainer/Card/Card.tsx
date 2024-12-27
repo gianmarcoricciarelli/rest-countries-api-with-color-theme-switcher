@@ -30,7 +30,7 @@ export default function Card({ country }: { country: Country }) {
                     alt={`${country.name.common}'s Flag`}
                 />
             </div>
-            <div className='px-5 pt-5 flex flex-col gap-3'>
+            <div className='p-5 flex flex-col gap-3 grow'>
                 <Text fontSize='base' fontStyle='extraBold'>
                     {country.name.common}
                 </Text>

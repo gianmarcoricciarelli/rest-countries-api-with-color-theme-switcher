@@ -11,6 +11,7 @@ export default function CardsContainer() {
         CountriesContext as Context<CountriesContextInterface>,
     );
 
+    // TODO: HANDLE NO RESULT SCENARIO
     return (
         <div
             className={clsx(
