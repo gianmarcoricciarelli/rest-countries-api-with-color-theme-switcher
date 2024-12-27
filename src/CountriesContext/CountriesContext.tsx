@@ -4,9 +4,10 @@ import { Country } from '../types';
 export interface CountriesContextInterface {
     countries: Country[];
     fetchCountries: (region?: string) => void;
-    filterCountries: (params: { region?: string; inputText?: string }) => void;
+    filterCountries: (params: { region?: string; inputText: string }) => void;
     isLoading: boolean;
     error: boolean;
+    inputText: string;
 }
 export const CountriesContext = createContext<CountriesContextInterface | null>(
     null,
@@ -21,6 +22,7 @@ export function CountryContextProvider({
     const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [inputText, setInputText] = useState('');
 
     const fetchCountries = useCallback(async function fetchCountries() {
         try {
@@ -46,32 +48,34 @@ export function CountryContextProvider({
     }, []);
 
     const filterCountries = useCallback(
-        ({ region, inputText }: { region?: string; inputText?: string }) => {
+        ({ region, inputText }: { region?: string; inputText: string }) => {
+            console.log('inputText:', inputText);
+            let _filteredCountries: Country[] = [];
+
             if (region && inputText) {
-                setFilteredCountries(
-                    allCountries.filter(
-                        (country) =>
-                            country.region === region &&
-                            country.name.common
-                                .toLowerCase()
-                                .includes(inputText.toLowerCase()),
-                    ),
-                );
-            } else if (region) {
-                setFilteredCountries(
-                    allCountries.filter((country) => country.region === region),
-                );
-            } else if (inputText) {
-                setFilteredCountries(
-                    allCountries.filter((country) =>
+                _filteredCountries = allCountries.filter(
+                    (country) =>
+                        country.region === region &&
                         country.name.common
                             .toLowerCase()
                             .includes(inputText.toLowerCase()),
-                    ),
+                );
+            } else if (region) {
+                _filteredCountries = allCountries.filter(
+                    (country) => country.region === region,
+                );
+            } else if (inputText) {
+                _filteredCountries = allCountries.filter((country) =>
+                    country.name.common
+                        .toLowerCase()
+                        .includes(inputText.toLowerCase()),
                 );
             } else {
-                setFilteredCountries(allCountries);
+                _filteredCountries = allCountries;
             }
+
+            setInputText(inputText);
+            setFilteredCountries(_filteredCountries);
         },
         [allCountries],
     );
@@ -84,6 +88,7 @@ export function CountryContextProvider({
                 filterCountries,
                 isLoading,
                 error,
+                inputText,
             }}
         >
             {children}

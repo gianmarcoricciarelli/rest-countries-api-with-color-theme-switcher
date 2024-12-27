@@ -13,15 +13,14 @@ import Header from './Header/Header';
 import Spinner from './Spinner/Spinner';
 
 export default function App() {
-    const { countries, fetchCountries, isLoading, error } = useContext(
+    const { fetchCountries, isLoading, error } = useContext(
         CountriesContext as Context<CountriesContextInterface>,
     );
     const { detailCountry } = useContext(
         DetailContext as Context<DetailContextInterface>,
     );
 
-    const showCountries =
-        !detailCountry && !isLoading && !error && countries.length > 0;
+    const showCountries = !detailCountry && !isLoading && !error;
 
     useEffect(() => {
         fetchCountries();
