@@ -11,6 +11,7 @@ import { DetailContext, DetailContextInterface } from './DetailContext/context';
 import Filter from './Filter/Filter';
 import Header from './Header/Header';
 import Spinner from './Spinner/Spinner';
+import Text from './Text/Text';
 
 export default function App() {
     const { fetchCountries, isLoading, error } = useContext(
@@ -41,7 +42,13 @@ export default function App() {
                         <Spinner />
                     </div>
                 )) ||
-                (error && <p>Error</p>)}
+                (error && (
+                    <div className='flex justify-center'>
+                        <Text fontStyle='extraBold' fontSize='extraLarge'>
+                            Something went wrong!
+                        </Text>
+                    </div>
+                ))}
             {detailCountry && <Detail country={detailCountry} />}
         </div>
     );
