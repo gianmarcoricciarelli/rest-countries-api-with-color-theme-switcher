@@ -1,8 +1,21 @@
+import clsx from 'clsx';
+
 export default function Spinner() {
     return (
-        <div className='grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible'>
+        <div
+            className={clsx(
+                'min-h-[140px] w-full',
+                'p-6',
+                'place-items-center overflow-x-scroll rounded-lg lg:overflow-visible',
+                'grid',
+            )}
+        >
             <svg
-                className='w-16 h-16 text-very-light-gray dark:text-very-dark-blue-dark transition-colors duration-300 animate-spin'
+                className={clsx(
+                    'w-16 h-16',
+                    'text-very-light-gray dark:text-very-dark-blue-dark transition-colors duration-300',
+                    'animate-spin',
+                )}
                 viewBox='0 0 64 64'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'

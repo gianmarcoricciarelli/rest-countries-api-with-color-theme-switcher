@@ -7,7 +7,7 @@ export default function Borders({ borders }: { borders: string[] }) {
             <Text fontSize='base' fontStyle='semiBold' whiteSpace='noWrap'>
                 Border Countries:
             </Text>
-            <div className={clsx('flex flex-wrap gap-3')}>
+            <div className={'flex flex-wrap gap-3'}>
                 {borders.map((border) => (
                     <div
                         key={border}
