@@ -42,12 +42,12 @@ export default function App() {
             </div>
             {(showCountries && <CardsContainer />) ||
                 (isLoading && (
-                    <div className='w-full h-full flex justify-center items-center'>
+                    <div className='flex justify-center items-center grow'>
                         <Spinner />
                     </div>
                 )) ||
                 (error && (
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center items-center grow'>
                         <Text fontStyle='extraBold' fontSize='extraLarge'>
                             Something went wrong!
                         </Text>
